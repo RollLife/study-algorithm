@@ -25,13 +25,14 @@ n = int(input_string.split(" ")[0])
 m = int(input_string.split(" ")[1])
 
 # 생명체 하나에게 돌아가는 돈의 양
-one_living_money = n / m
+one_living_money = n // m  # / 그냥 나눗셈으로 이용하면 Overflow가 발생함
 remain_money = n % m
-remain_money = math.floor(remain_money) - remain_money
+remain_money = remain_money - math.floor(remain_money)
 
 print(one_living_money)
 print(remain_money)
 
 # 7/13 제출 -> 실패 / Error Occurred runtime error (OverFlowError)
 # 7/13 두번째 제출 -> 실패 / Error Occurred runtime error (OverFlowError)
-# 7/14 두번째 제출 -> 실패 / Error Occurred runtime error (OverFlowError)
+# 7/14 세번째 제출 -> 실패 / Error Occurred runtime error (OverFlowError)
+# 7/14 네번째 제출 -> 실패 / 틀림 
