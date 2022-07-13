@@ -14,6 +14,7 @@
 출력
 첫째 줄에 생명체 하나에게 돌아가는 돈의 양을 출력한다. 그리고 두 번째 줄에는 1원씩 분배할 수 없는 남는 돈을 출력한다.
 """
+import math
 
 input_string = input()
 
@@ -24,7 +25,13 @@ n = int(input_string.split(" ")[0])
 m = int(input_string.split(" ")[1])
 
 # 생명체 하나에게 돌아가는 돈의 양
-print(n / m)
-print(n % m)
+one_living_money = n / m
+remain_money = n % m
+remain_money = math.floor(remain_money) - remain_money
+
+print(one_living_money)
+print(remain_money)
 
 # 7/13 제출 -> 실패 / Error Occurred runtime error (OverFlowError)
+# 7/13 두번째 제출 -> 실패 / Error Occurred runtime error (OverFlowError)
+# 7/14 두번째 제출 -> 실패 / Error Occurred runtime error (OverFlowError)
