@@ -21,3 +21,5 @@ B = int(input_string2)
 print(A + B)
 print(A - B)
 print(A * B)
+
+# 7/14 정답

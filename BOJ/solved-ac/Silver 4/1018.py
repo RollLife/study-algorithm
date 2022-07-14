@@ -88,3 +88,5 @@ def main(text):
 
 
 print(main(example_board))
+
+# 7/15 문제가 이해가 되지 않아 풀 수 없었음.
