@@ -13,9 +13,10 @@
 """
 
 input_string = input()
+input_string2 = input()
 
-A = int(input_string.split(" ")[0])
-B = int(input_string.split(" ")[1])
+A = int(input_string)
+B = int(input_string2)
 
 print(A + B)
 print(A - B)
