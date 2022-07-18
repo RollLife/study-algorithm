@@ -41,16 +41,19 @@ yours"""
 
 # input_string = input()
 
+
 result = {}
 
 
-def check_duplicate(word):
-    if word in result:
-        return True
-    return False
-
-
 def diff_by_dictionary(first_word, second_word):
+    """
+    두 단어를 사전순으로 비교
+
+    사전순으로 나중에 온것이 더 큰값을 받는다.
+    :param first_word:
+    :param second_word:
+    :return:
+    """
     for first_word_chr in list(first_word):
         for second_word_chr in list(second_word):
             if first_word_chr == second_word_chr:
@@ -72,8 +75,39 @@ def diff_by_dictionary(first_word, second_word):
 
 
 def diff_length(first_word, second_word):
+    """
+    문자 길이를 서로 확인
+    문자가 더 긴것이 나중에 온다.
+    :param first_word:
+    :param second_word:
+    :return:
+    """
+    if not (len(first_word) < len(second_word)):
+        return "first"
+    return "second"
 
-    pass
+
+def check_number(word):
+    """
+    숫자가 포함되어있는지 확인
+    :param word:
+    :return:
+    """
+    for number in NUMBER_LIST:
+        if number in word:
+            return True
+    return False
+
+
+def check_duplicate(word):
+    """
+    중복된 단어가 있는지 확인
+    :param word:
+    :return:
+    """
+    if word in result:
+        return True
+    return False
 
 
 def diff_each(first_word, second_word):
@@ -81,10 +115,13 @@ def diff_each(first_word, second_word):
 
 
 def sort(text):
-    original_list = input_string.split("\n")
-    print(original_list)
+    original_list = text.split("\n")
+
+    # 선별작업, 숫자와 중복된 단어 포함되어 있는지 확인
+    for idx, original_word in enumerate(original_list):
+        result[idx] = original_word
 
 
-# sort(input_string)
+sort(input_string)
 
-print(diff_by_dictionary("12312", "123"))
+# print(diff_by_dictionary("12312", "123"))
