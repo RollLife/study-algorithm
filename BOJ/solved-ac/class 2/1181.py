@@ -117,10 +117,17 @@ def diff_each(first_word, second_word):
 def sort(text):
     original_list = text.split("\n")
 
+    cnt = 0
     # 선별작업, 숫자와 중복된 단어 포함되어 있는지 확인
-    for idx, original_word in enumerate(original_list):
-        result[idx] = original_word
+    for original_word in original_list:
+        if check_number(original_word):
+            continue
+        if check_duplicate(original_word):
+            continue
+        result[original_word] = cnt
+        cnt += 1
 
+    print(result)
 
 sort(input_string)
 
