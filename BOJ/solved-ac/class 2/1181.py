@@ -20,8 +20,8 @@ https://www.acmicpc.net/problem/1181
 """
 import string
 
-ALPHABET_list = list(string.ascii_lowercase)
-NUMBER_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+ALPHABET_LIST = list(string.ascii_lowercase)
+NUMBER_LIST = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 # 예제 입력
 input_string = """13
@@ -55,6 +55,14 @@ def diff_by_dictionary(first_word, second_word):
         for second_word_chr in list(second_word):
             if first_word_chr == second_word_chr:
                 continue
+            # if first_word_chr in NUMBER_LIST:
+            #     first_word_chr = int(first_word_chr)
+            # if second_word_chr in NUMBER_LIST:
+            #     second_word_chr = int(second_word_chr)
+            # if isinstance(first_word_chr, int) and isinstance(second_word_chr, str):
+            #     return "first_number"
+            # if isinstance(first_word_chr, str) and isinstance(second_word_chr, int):
+            #     return "second_number"
             # first word get priority
             if not (first_word_chr > second_word_chr):
                 return "first"
@@ -64,6 +72,7 @@ def diff_by_dictionary(first_word, second_word):
 
 
 def diff_length(first_word, second_word):
+
     pass
 
 
@@ -78,4 +87,4 @@ def sort(text):
 
 # sort(input_string)
 
-print(diff_by_dictionary("bla", "can"))
+print(diff_by_dictionary("12312", "123"))
