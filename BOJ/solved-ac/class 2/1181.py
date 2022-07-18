@@ -126,6 +126,7 @@ def sort(text):
         result[original_word] = cnt
         cnt += 1
 
+    # TODO:서로 비교하는 로직 구현하기
     for key, value in result.items():
         diff_each((key, value))
 
