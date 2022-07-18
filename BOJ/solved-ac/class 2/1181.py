@@ -41,3 +41,41 @@ yours"""
 
 # input_string = input()
 
+result = {}
+
+
+def check_duplicate(word):
+    if word in result:
+        return True
+    return False
+
+
+def diff_by_dictionary(first_word, second_word):
+    for first_word_chr in list(first_word):
+        for second_word_chr in list(second_word):
+            if first_word_chr == second_word_chr:
+                continue
+            # first word get priority
+            if not (first_word_chr > second_word_chr):
+                return "first"
+            # second word get priority
+            else:
+                return "second"
+
+
+def diff_length(first_word, second_word):
+    pass
+
+
+def diff_each(first_word, second_word):
+    pass
+
+
+def sort(text):
+    original_list = input_string.split("\n")
+    print(original_list)
+
+
+# sort(input_string)
+
+print(diff_by_dictionary("bla", "can"))
