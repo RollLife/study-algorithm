@@ -58,14 +58,6 @@ def diff_by_dictionary(first_word, second_word):
         for second_word_chr in list(second_word):
             if first_word_chr == second_word_chr:
                 continue
-            # if first_word_chr in NUMBER_LIST:
-            #     first_word_chr = int(first_word_chr)
-            # if second_word_chr in NUMBER_LIST:
-            #     second_word_chr = int(second_word_chr)
-            # if isinstance(first_word_chr, int) and isinstance(second_word_chr, str):
-            #     return "first_number"
-            # if isinstance(first_word_chr, str) and isinstance(second_word_chr, int):
-            #     return "second_number"
             # first word get priority
             if not (first_word_chr > second_word_chr):
                 return "first"
@@ -82,6 +74,8 @@ def diff_length(first_word, second_word):
     :param second_word:
     :return:
     """
+    if len(first_word) == len(second_word):
+        return False
     if not (len(first_word) < len(second_word)):
         return "first"
     return "second"
@@ -111,7 +105,12 @@ def check_duplicate(word):
 
 
 def diff_each(first_word, second_word):
-    pass
+    df_length_value = diff_length(first_word, second_word)
+    if df_length_value:
+        return df_length_value
+
+    df_dict_value = diff_by_dictionary(first_word, second_word)
+    return df_dict_value
 
 
 def sort(text):
@@ -127,7 +126,11 @@ def sort(text):
         result[original_word] = cnt
         cnt += 1
 
+    for key, value in result.items():
+        diff_each((key, value))
+
     print(result)
+
 
 sort(input_string)
 
