@@ -42,7 +42,7 @@ yours"""
 # input_string = input()
 
 
-result = {}
+result = []
 
 
 def diff_by_dictionary(first_word, second_word):
@@ -116,23 +116,29 @@ def diff_each(first_word, second_word):
 def sort(text):
     original_list = text.split("\n")
 
-    cnt = 0
     # 선별작업, 숫자와 중복된 단어 포함되어 있는지 확인
     for original_word in original_list:
         if check_number(original_word):
             continue
         if check_duplicate(original_word):
             continue
-        result[original_word] = cnt
-        cnt += 1
+        result.append(original_word)
 
     # TODO:서로 비교하는 로직 구현하기
-    for key, value in result.items():
-        diff_each((key, value))
 
-    print(result)
+    # 선택정렬
+    for i in range(len(result)):
+        min_index = i
+        for j in range(i + 1, len(result)):
+            diff_value = diff_each(result[min_index], result[j])
+            if diff_value == "first":
+                min_index = j
+        result[i], result[min_index] = result[min_index], result[i]
+
+    for dum in result:
+        print(dum)
 
 
 sort(input_string)
 
-# print(diff_by_dictionary("12312", "123"))
+# 7/19 제출, 틀림 
