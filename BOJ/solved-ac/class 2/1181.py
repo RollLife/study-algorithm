@@ -139,18 +139,14 @@ def sort(text):
                 min_index = j
         result[i], result[min_index] = result[min_index], result[i]
 
-    for dum in result:
-        print(dum)
+    for answer in result:
+        print(answer)
 
 
-first_input = input()
-first_input = first_input.split(" ")
-input_string = input()
+input_string = input()[1:]
 input_string = input_string.split("\n")
 
-first_input += input_string
-
-sort(first_input)
+sort(input_string)
 
 # 7/19 제출, 틀림
 # 7/19 제출, 틀림
