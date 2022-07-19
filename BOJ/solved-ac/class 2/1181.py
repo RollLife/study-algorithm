@@ -24,22 +24,22 @@ ALPHABET_LIST = list(string.ascii_lowercase)
 NUMBER_LIST = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 # 예제 입력
-input_string = """13
-but
-i
-wont
-hesitate
-no
-more
-no
-more
-it
-cannot
-wait
-im
-yours"""
+# input_string = """13
+# but
+# i
+# wont
+# hesitate
+# no
+# more
+# no
+# more
+# it
+# cannot
+# wait
+# im
+# yours"""
 
-# input_string = input()
+input_string = input()
 
 
 result = []
@@ -54,16 +54,19 @@ def diff_by_dictionary(first_word, second_word):
     :param second_word:
     :return:
     """
-    for first_word_chr in list(first_word):
-        for second_word_chr in list(second_word):
-            if first_word_chr == second_word_chr:
-                continue
-            # first word get priority
-            if not (first_word_chr > second_word_chr):
-                return "first"
-            # second word get priority
-            else:
-                return "second"
+    length = len(first_word) if len(first_word) < len(second_word) else len(second_word)
+
+    for i in range(length):
+        first_word_list = list(first_word)
+        second_word_list = list(second_word)
+
+        if first_word_list[i] == second_word_list[i]:
+            continue
+        if first_word_list[i] > second_word_list[i]:
+            return "first"
+        # second word get priority
+        else:
+            return "second"
 
 
 def diff_length(first_word, second_word):
@@ -132,6 +135,7 @@ def sort(text):
         for j in range(i + 1, len(result)):
             diff_value = diff_each(result[min_index], result[j])
             if diff_value == "first":
+                # print(result[j])
                 min_index = j
         result[i], result[min_index] = result[min_index], result[i]
 
@@ -141,4 +145,5 @@ def sort(text):
 
 sort(input_string)
 
-# 7/19 제출, 틀림 
+# 7/19 제출, 틀림
+# 7/19 제출, 틀림
