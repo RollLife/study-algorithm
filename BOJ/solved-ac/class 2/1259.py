@@ -21,17 +21,17 @@
 """
 
 #예제
-input_string = """121
-1231
-12421
-0123
-0"""
-# input_string = input()
+# input_string = """121
+# 1231
+# 12421
+# 0123
+# 0"""
 
-split_string = input_string.split("\n")
+while True:
 
-for idx, value in enumerate(split_string):
-    if value == "0" and idx + 1 == len(split_string):
+    value = input()
+
+    if value == "0":
         break
 
     if value[0] == "0":
