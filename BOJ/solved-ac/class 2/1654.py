@@ -60,3 +60,4 @@ for min_number in reversed(range(min_cable_number)):
         print(min_number)
         break
 # 7/22 에러 발생
+# 시간 초과
