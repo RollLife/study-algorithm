@@ -43,6 +43,7 @@ for i in range(K):
     cable_list.append((int(sys.stdin.readline())))
 
 min_cable_number = int(min(cable_list))
+max_cable_number = int(max(cable_list))
 
 
 def divide_number(target, num):
@@ -61,3 +62,4 @@ for min_number in reversed(range(min_cable_number)):
         break
 # 7/22 에러 발생
 # 시간 초과
+# 최고 숫자 순차적으로 참색하는 방법에서 이분탐색으로 변경
