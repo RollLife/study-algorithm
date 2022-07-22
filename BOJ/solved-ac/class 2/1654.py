@@ -42,24 +42,26 @@ cable_list = []
 for i in range(K):
     cable_list.append((int(sys.stdin.readline())))
 
-min_cable_number = int(min(cable_list))
-max_cable_number = int(max(cable_list))
+start = 1
+end = int(max(cable_list))
 
 
 def divide_number(target, num):
-    return target//num
+    return target // num
 
 
-for min_number in reversed(range(min_cable_number)):
-    if not min_number:
-        continue
+while start <= end:
+    middle = (start + end) // 2  # 중간 위치
+    # print(middle)
     total_number = 0
     for cable in cable_list:
-        total_number += divide_number(cable, min_number)
+        total_number += divide_number(cable, middle)
+    if total_number < N:
+        end = middle - 1
+    elif total_number >= N:
+        start = middle + 1
 
-    if total_number == int(N):
-        print(min_number)
-        break
+print(end)
 # 7/22 에러 발생
 # 시간 초과
 # 최고 숫자 순차적으로 참색하는 방법에서 이분탐색으로 변경
