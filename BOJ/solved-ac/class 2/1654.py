@@ -26,6 +26,7 @@ https://www.acmicpc.net/problem/1654
 출력
 첫째 줄에 N개를 만들 수 있는 랜선의 최대 길이를 센티미터 단위의 정수로 출력한다.
 """
+import sys
 
 # 예제 입력
 # input_string = """4 11
@@ -33,17 +34,15 @@ https://www.acmicpc.net/problem/1654
 # 743
 # 457
 # 539"""
-input_string = input()
-
-input_list = input_string.split("\n")
 
 # K- 이미 갖고 있는 랜선 갯수, N - 필요한 랜선 갯수
-K, N = input_list[0].split(" ")
+K, N = [int(i) for i in sys.stdin.readline().split(" ")]
 
-cable_list = [int(i) for i in input_list[1:]]
+cable_list = []
+for i in range(K):
+    cable_list.append((int(sys.stdin.readline())))
 
 min_cable_number = int(min(cable_list))
-print(cable_list)
 
 
 def divide_number(target, num):
@@ -60,5 +59,4 @@ for min_number in reversed(range(min_cable_number)):
     if total_number == int(N):
         print(min_number)
         break
-
 # 7/22 에러 발생
